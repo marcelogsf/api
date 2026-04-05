@@ -33,10 +33,16 @@ public class AlunoController {
         return alunoService.buscarAlunoPorId(id);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarAlunoPorId(@PathVariable Long id) {
+        alunoService.deletarAlunoPorId(id);
+    }
+
     @PutMapping("/{id}")              // PUT /alunos/1
     @ResponseStatus(HttpStatus.NO_CONTENT)  // 204
-    public void atualizarAlunoPorId(@PathVariable Long id,
-                                    @RequestBody Aluno aluno) {
-        alunoService.atualizarAlunoPorId(id, aluno);
+    public void atualizarAlunoPorId(@PathVariable Long id, @RequestBody Aluno alunoEditado) {
+        alunoService.atualizarAlunoPorId(id, alunoEditado);
     }
+
 }
