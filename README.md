@@ -12,8 +12,6 @@
 ## 📌 Sobre o Projeto
 Esta API REST foi desenvolvida com Spring Boot com o objetivo de gerenciar dados acadêmicos, permitindo operações completas de CRUD (Create, Read, Update, Delete) para alunos e professores.
 
-O projeto segue boas práticas como separação em camadas, organização modular e integração com banco de dados relacional.
-
 ---
 
 ## 🧠 Arquitetura do Projeto
@@ -25,11 +23,6 @@ src/
 ├── service/
 ├── controller/
 ```
-
-- **Model** → Representa as entidades (Aluno e Professor)  
-- **Repository** → Comunicação com o banco (JPA)  
-- **Service** → Regras de negócio  
-- **Controller** → Endpoints da API  
 
 ---
 
@@ -45,33 +38,49 @@ src/
 
 ---
 
-## 🔄 Endpoints da API
+## 🚀 Como Executar o Projeto
 
-### 📌 Aluno
+### 1️⃣ Clonar o repositório
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| POST | /alunos | Criar aluno |
-| GET | /alunos | Listar alunos |
-| GET | /alunos/{id} | Buscar por ID |
-| PUT | /alunos/{id} | Atualizar |
-| DELETE | /alunos/{id} | Deletar |
-
-### 📌 Professor
-
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| POST | /professores | Criar professor |
-| GET | /professores | Listar professores |
-| GET | /professores/{id} | Buscar por ID |
-| PUT | /professores/{id} | Atualizar |
-| DELETE | /professores/{id} | Deletar |
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+```
 
 ---
 
-## 🧪 Exemplo de Requisição
+### 2️⃣ Configurar o banco de dados
 
-### 🔹 Criar Aluno
+```sql
+CREATE DATABASE aluno_online;
+```
+
+---
+
+### 3️⃣ Configurar o application.properties
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/aluno_online
+spring.datasource.username=SEU_USUARIO
+spring.datasource.password=SUA_SENHA
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+```
+
+---
+
+### 4️⃣ Executar o projeto
+
+```bash
+./mvnw spring-boot:run
+```
+
+---
+
+## 🔄 Exemplos de Requisição (JSON)
+
+### 📌 Criar Aluno
 ```json
 {
   "nome": "Marcelo",
@@ -82,53 +91,104 @@ src/
 
 ---
 
+### 📌 Atualizar Aluno
+```json
+{
+  "nome": "Novo Nome",
+  "email": "novo@email.com",
+  "cpf": "00000000000"
+}
+```
+
+---
+
+### 📌 Criar Professor
+```json
+{
+  "nome": "Professor João",
+  "email": "joao@email.com",
+  "cpf": "123.456.789-00"
+}
+```
+
+---
+
+### 📌 Atualizar Professor
+```json
+{
+  "nome": "Novo Professor",
+  "email": "novo@email.com",
+  "cpf": "00000000000"
+}
+```
+
+---
+
 ## 🧪 Testes com Insomnia
 
 ### 🔹 Criar Aluno
-<img width="1920" height="1039" alt="criarAluno" src="https://github.com/user-attachments/assets/fa8dc9bc-192c-45f4-8336-5242ed931ff0" />
+<img width="1920" height="1040" alt="criarAluno" src="https://github.com/user-attachments/assets/a0eaa9d8-035c-472a-9e7a-bde6bbe9e200" />
 
 
 ### 🔹 Listar Alunos
-<img width="1920" height="1036" alt="listarTodosAlunos" src="https://github.com/user-attachments/assets/2eec3513-1a00-4973-8541-540ae0abbb60" />
+<img width="1920" height="1043" alt="listarTodosAlunos" src="https://github.com/user-attachments/assets/c3b36798-a21d-4618-abdc-3c05f739fbf9" />
 
 
 ### 🔹 Buscar Aluno por ID
-<img width="1919" height="1040" alt="buscarAlunoPorId" src="https://github.com/user-attachments/assets/7e6deaee-4189-43fe-bd2d-dae07daa5180" />
+<img width="1920" height="1042" alt="buscarAlunoPorId" src="https://github.com/user-attachments/assets/36b0cb06-bcfc-4c74-92be-e4e1c7c30daf" />
 
 
 ### 🔹 Atualizar Aluno
-<img width="1920" height="1042" alt="atualizarAlunoPorId" src="https://github.com/user-attachments/assets/4db9ac4e-4a50-49aa-b703-46d6ece0d395" />
+<img width="1920" height="1042" alt="atualizarAlunoPorId" src="https://github.com/user-attachments/assets/ec050ac8-cf08-4c66-a8bb-651866e74fbd" />
 
 
 ### 🔹 Deletar Aluno
-<img width="1918" height="1040" alt="deletarAlunoPorId" src="https://github.com/user-attachments/assets/7d3401f9-8e46-47b4-b8dc-086a7bf77a98" />
-
-
-### 🔹 Criar Professor
-<img width="1919" height="1036" alt="criarProfessor" src="https://github.com/user-attachments/assets/a6158e14-0462-40a2-9007-81b45574f137" />
+<img width="1920" height="1042" alt="deletarAlunoPorId" src="https://github.com/user-attachments/assets/d81b7c68-30cb-4ff1-9ed1-8160c30a99b8" />
 
 
 ---
 
-## 🗄️ Banco de Dados (DBeaver)
+### 🔹 Criar Professor
+<img width="1920" height="1043" alt="criarProfessor" src="https://github.com/user-attachments/assets/09d2a171-33d3-4697-87a6-0d9b48cf194a" />
+
+
+### 🔹 Listar Professores
+<img width="1920" height="1041" alt="listarTodosProfessores" src="https://github.com/user-attachments/assets/0188b941-7543-4d09-9bc8-7faf290932f4" />
+
+
+### 🔹 Buscar Professor por ID
+<img width="1920" height="1039" alt="buscarProfessorPorId" src="https://github.com/user-attachments/assets/0022fadd-c901-4e43-84c2-01752d921578" />
+
+
+### 🔹 Atualizar Professor
+<img width="1920" height="1040" alt="atualizarProfessorPorId" src="https://github.com/user-attachments/assets/149fa32b-ed0f-40a1-9751-03e5e1863a16" />
+
+
+### 🔹 Deletar Professor
+<img width="1920" height="1043" alt="deletarProfessorPorId" src="https://github.com/user-attachments/assets/9280aede-d421-45c4-935f-edea86bec4d9" />
+
+
+---
+
+## 🗄️ Banco de Dados
 
 ### 🔹 Tabela Aluno
-<img width="1920" height="1039" alt="tabela-aluno" src="https://github.com/user-attachments/assets/126794a2-e229-4d9a-ba81-5bcbd2e1f349" />
+<img width="1920" height="1042" alt="tabela-aluno" src="https://github.com/user-attachments/assets/33cf2d1e-16bc-4f08-83e7-59ae0beea7e0" />
 
 
 ### 🔹 Tabela Professor
-<img width="1920" height="1043" alt="tabela-professor" src="https://github.com/user-attachments/assets/037f2921-34c8-45bd-8b65-259c84f5fd86" />
+<img width="1920" height="1041" alt="tabela-professor" src="https://github.com/user-attachments/assets/84a32ad8-9b21-4c2d-aa0b-075e388b29c9" />
 
 
 ---
 
-## 📊 Diferenciais do Projeto
+## 📊 Diferenciais
 
-- API REST completa (CRUD)  
-- Estrutura em camadas bem definida  
-- Integração com banco PostgreSQL  
-- Testes realizados com Insomnia  
-- Persistência de dados real  
+- API REST completa  
+- CRUD funcional  
+- Integração com PostgreSQL  
+- Testado com Insomnia  
+- Estrutura organizada  
 
 ---
 
@@ -140,4 +200,4 @@ src/
 
 ## 📌 Status
 
-✅ Projeto finalizado e funcional
+✅ Projeto finalizado
