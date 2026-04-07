@@ -124,6 +124,28 @@ spring.jpa.properties.hibernate.format_sql=true
 
 ---
 
+## 🔗 Endpoints da API
+
+### 👨‍🎓 Alunos
+
+- **POST /alunos** → Criar novo aluno  
+- **GET /alunos** → Listar todos os alunos  
+- **GET /alunos/{id}** → Buscar aluno por ID  
+- **PUT /alunos/{id}** → Atualizar aluno  
+- **DELETE /alunos/{id}** → Deletar aluno  
+
+---
+
+### 👨‍🏫 Professores
+
+- **POST /professores** → Criar novo professor  
+- **GET /professores** → Listar todos os professores  
+- **GET /professores/{id}** → Buscar professor por ID  
+- **PUT /professores/{id}** → Atualizar professor  
+- **DELETE /professores/{id}** → Deletar professor  
+
+---
+
 ## 🧪 Testes com Insomnia
 
 ### 🔹 Criar Aluno
